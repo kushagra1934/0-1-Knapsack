@@ -9,7 +9,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from 'recharts'
 
@@ -43,26 +42,22 @@ const orderVolumeData = [
 
 export function ReportsTab() {
   return (
-    <div className='space-y-4'>
+    <div className='space-y-6'>
       {/* Supplier Performance Report */}
-      <Card className='bg-gradient-to-r from-purple-800 via-purple-700 to-purple-600'>
-        <CardHeader>
-          <CardTitle className='text-gray-100'>
-            Supplier Performance Report
+      <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900'>
+        <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardTitle className='text-base font-semibold tracking-tight'>
+            Supplier Performance
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className='mb-2 text-sm text-gray-200'>
-            This report details the performance metrics of our suppliers,
-            including delivery times, quality scores, and compliance rates.
-          </p>
-          <ResponsiveContainer width='100%' height={300}>
+          <ResponsiveContainer width='100%' height={360}>
             <PieChart>
               <Pie
                 data={supplierPerformanceData}
                 cx='50%'
                 cy='50%'
-                outerRadius={80}
+                outerRadius={90}
                 fill='#8884d8'
                 dataKey='value'
               >
@@ -74,88 +69,79 @@ export function ReportsTab() {
                 ))}
               </Pie>
               <Tooltip />
-              <Legend />
             </PieChart>
           </ResponsiveContainer>
+          <p className='mt-4 text-xs text-muted-foreground'>
+            Supplier on-time vs delayed deliveries
+          </p>
         </CardContent>
       </Card>
-
       {/* Order Fulfillment Report */}
-      <Card className='bg-gradient-to-r from-teal-800 via-teal-700 to-teal-600'>
-        <CardHeader>
-          <CardTitle className='text-gray-100'>
-            Order Fulfillment Report
+      <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900'>
+        <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardTitle className='text-base font-semibold tracking-tight'>
+            Order Fulfillment
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className='mb-2 text-sm text-gray-200'>
-            This report provides an overview of order fulfillment efficiency,
-            including order processing times, delivery statuses, and any issues
-            encountered.
-          </p>
-          <ResponsiveContainer width='100%' height={300}>
+          <ResponsiveContainer width='100%' height={360}>
             <BarChart data={orderFulfillmentData}>
               <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='name' stroke='#fff' />
-              <YAxis stroke='#fff' />
+              <XAxis dataKey='name' stroke='#888' />
+              <YAxis stroke='#888' />
               <Tooltip />
-              <Legend />
               <Bar dataKey='Completed' fill='#82ca9d' />
               <Bar dataKey='In Progress' fill='#8884d8' />
               <Bar dataKey='Cancelled' fill='#ff8042' />
             </BarChart>
           </ResponsiveContainer>
+          <p className='mt-4 text-xs text-muted-foreground'>
+            Order status breakdown
+          </p>
         </CardContent>
       </Card>
-
       {/* Shipment Volume Report */}
-      <Card className='bg-gradient-to-r from-green-800 via-green-700 to-green-600'>
-        <CardHeader>
-          <CardTitle className='text-gray-100'>
-            Shipment Volume Report
+      <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900'>
+        <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardTitle className='text-base font-semibold tracking-tight'>
+            Shipment Volume
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className='mb-2 text-sm text-gray-200'>
-            This report tracks shipment volumes across different time periods,
-            helping to identify trends and plan for future capacity needs.
-          </p>
-          <ResponsiveContainer width='100%' height={300}>
+          <ResponsiveContainer width='100%' height={360}>
             <BarChart data={orderVolumeData}>
               <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='name' stroke='#fff' />
-              <YAxis stroke='#fff' />
+              <XAxis dataKey='name' stroke='#888' />
+              <YAxis stroke='#888' />
               <Tooltip />
-              <Legend />
-              <Bar dataKey='Volume' fill='#82ca9d' />
+              <Bar dataKey='value' fill='#82ca9d' />
             </BarChart>
           </ResponsiveContainer>
+          <p className='mt-4 text-xs text-muted-foreground'>
+            Shipment volume by status
+          </p>
         </CardContent>
       </Card>
-
       {/* Inventory Turnover Report */}
-      <Card className='bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600'>
-        <CardHeader>
-          <CardTitle className='text-gray-100'>
-            Inventory Turnover Report
+      <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900'>
+        <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardTitle className='text-base font-semibold tracking-tight'>
+            Inventory Turnover
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className='mb-2 text-sm text-gray-200'>
-            This report shows the rate at which inventory is being sold and
-            replaced over time, offering insights into inventory management
-            effectiveness.
-          </p>
-          <ResponsiveContainer width='100%' height={300}>
+          <ResponsiveContainer width='100%' height={360}>
             <BarChart data={inventoryData}>
               <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='name' stroke='#fff' />
-              <YAxis stroke='#fff' />
+              <XAxis dataKey='name' stroke='#888' />
+              <YAxis stroke='#888' />
               <Tooltip />
-              <Legend />
               <Bar dataKey='Turnover' fill='#82ca9d' />
             </BarChart>
           </ResponsiveContainer>
+          <p className='mt-4 text-xs text-muted-foreground'>
+            Inventory turnover rate per month
+          </p>
         </CardContent>
       </Card>
     </div>

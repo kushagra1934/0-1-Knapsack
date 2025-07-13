@@ -163,19 +163,20 @@ const ChatPage: React.FC = () => {
       <Layout.Body>
         <div className='flex h-[calc(100vh-84px)]'>
           {/* Sidebar for Users */}
-          <aside className='bg-white-800 w-1/4 p-2 text-white'>
-            <h1 className='text-2xl font-bold text-black'>Realtime Chat</h1>
-            <Card className='bg-white-300 border-none p-1'>
+          <aside className='flex w-1/4 flex-col rounded-xl bg-zinc-900 p-4 text-white shadow-sm'>
+            <h1 className='mb-4 text-2xl font-bold text-white'>
+              Realtime Chat
+            </h1>
+            <Card className='rounded-xl border border-zinc-800 bg-zinc-900 shadow-sm'>
               <CardHeader>
-                <CardTitle className='text-lg text-black'>Users</CardTitle>
-                <hr />
+                <CardTitle className='text-lg text-white'>Users</CardTitle>
               </CardHeader>
-              <CardContent className='p-3'>
+              <CardContent className='p-0'>
                 <ul className='space-y-1'>
                   {users.map((user, index) => (
                     <li
                       key={index}
-                      className={`hover:bg-white-700 cursor-pointer rounded-lg p-2 transition duration-300 ${selectedUser.name === user.name ? 'bg-gray-200' : ''}`}
+                      className={`cursor-pointer rounded-lg px-3 py-2 transition duration-200 ${selectedUser.name === user.name ? 'bg-zinc-800 font-semibold text-white' : 'text-zinc-200 hover:bg-zinc-800'}`}
                       onClick={() => setSelectedUser(user)}
                     >
                       {user.name}
@@ -187,16 +188,16 @@ const ChatPage: React.FC = () => {
           </aside>
 
           {/* Main Chat Area */}
-          <main className='flex w-3/4 flex-col bg-gray-100 p-2'>
-            <Card className='h-1/8 flex flex-col bg-white'>
-              <CardHeader className='border-b border-gray-200'>
-                <CardTitle className='text-sm font-bold'>
+          <main className='flex w-3/4 flex-col bg-transparent p-6'>
+            <Card className='flex h-full flex-col rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
+              <CardHeader className='rounded-t-xl border-b border-zinc-200 bg-transparent dark:border-zinc-800'>
+                <CardTitle className='text-base font-semibold tracking-tight text-zinc-900 dark:text-white'>
                   Chat with {selectedUser.name}
                 </CardTitle>
               </CardHeader>
-              <CardContent className='h-1/8 flex flex-col'>
+              <CardContent className='flex flex-1 flex-col overflow-y-auto p-4'>
                 {/* Chat Messages */}
-                <div className='flex-1 overflow-y-auto p-2'>
+                <div className='flex-1 space-y-3 overflow-y-auto'>
                   {messages
                     .filter((msg) => msg.user === selectedUser.name)
                     .map((msg) => (
@@ -208,9 +209,8 @@ const ChatPage: React.FC = () => {
                       />
                     ))}
                 </div>
-
                 {/* Message Input Form */}
-                <div className='border-t border-gray-200 p-2'>
+                <div className='mt-4 border-t border-zinc-200 pt-4 dark:border-zinc-800'>
                   <MessageForm
                     newMessage={newMessage}
                     onMessageChange={(e) => setNewMessage(e.target.value)}

@@ -53,9 +53,11 @@ const ShipmentPage: React.FC = () => {
       <Layout.Body>
         <div className='space-y-4'>
           {/* Shipments Table */}
-          <Card>
+          <Card className='rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
             <CardHeader>
-              <CardTitle>Shipments Table</CardTitle>
+              <CardTitle className='text-base font-semibold tracking-tight'>
+                Shipments Table
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <Table
@@ -72,9 +74,11 @@ const ShipmentPage: React.FC = () => {
           </Card>
 
           {/* Shipment Status Chart */}
-          <Card>
+          <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
             <CardHeader>
-              <CardTitle>Shipment Status</CardTitle>
+              <CardTitle className='text-base font-semibold tracking-tight'>
+                Shipment Status
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width='100%' height={300}>
@@ -102,9 +106,11 @@ const ShipmentPage: React.FC = () => {
           </Card>
 
           {/* Shipment Volume Chart */}
-          <Card>
+          <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
             <CardHeader>
-              <CardTitle>Shipment Volume</CardTitle>
+              <CardTitle className='text-base font-semibold tracking-tight'>
+                Shipment Volume
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width='100%' height={300}>

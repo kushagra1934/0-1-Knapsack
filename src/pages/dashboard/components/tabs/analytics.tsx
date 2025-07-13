@@ -8,7 +8,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
   Pie,
   PieChart,
@@ -48,73 +47,66 @@ const COLORS = ['#00C49F', '#FF8042', '#FFBB28', '#8E44AD']
 
 export function AnalyticsTab() {
   return (
-    <div className='space-y-4'>
-      {/* Shipment Analytics */}
-      <Card className='bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600'>
-        <CardHeader>
-          <CardTitle className='text-gray-100'>Shipment Trends</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className='mb-2 text-sm text-gray-200'>
-            This chart displays the monthly shipment trends, providing insights
-            into the shipment volumes over the last six months.
-          </p>
-          <ResponsiveContainer width='100%' height={300}>
-            <LineChart data={shipmentData}>
-              <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='name' stroke='#fff' />
-              <YAxis stroke='#fff' />
-              <Tooltip />
-              <Legend />
-              <Line type='monotone' dataKey='Shipments' stroke='#8884d8' />
-            </LineChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
-
-      {/* Inventory Turnover */}
-      <Card className='bg-gradient-to-r from-green-800 via-green-700 to-green-600'>
-        <CardHeader>
-          <CardTitle className='text-gray-100'>
-            Inventory Turnover Rate
+    <div className='space-y-6'>
+      {/* Shipment Trends */}
+      <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900'>
+        <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardTitle className='text-base font-semibold tracking-tight'>
+            Shipment Trends
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className='mb-2 text-sm text-gray-200'>
-            This bar chart illustrates the inventory turnover rate each month,
-            reflecting how efficiently inventory is being managed.
+          <ResponsiveContainer width='100%' height={360}>
+            <LineChart data={shipmentData}>
+              <CartesianGrid strokeDasharray='3 3' />
+              <XAxis dataKey='name' stroke='#888' />
+              <YAxis stroke='#888' />
+              <Tooltip />
+              <Line type='monotone' dataKey='Shipments' stroke='#8884d8' />
+            </LineChart>
+          </ResponsiveContainer>
+          <p className='mt-4 text-xs text-muted-foreground'>
+            Monthly shipment volumes (last 6 months)
           </p>
-          <ResponsiveContainer width='100%' height={300}>
+        </CardContent>
+      </Card>
+      {/* Inventory Turnover */}
+      <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900'>
+        <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardTitle className='text-base font-semibold tracking-tight'>
+            Inventory Turnover
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ResponsiveContainer width='100%' height={360}>
             <BarChart data={inventoryData}>
               <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='name' stroke='#fff' />
-              <YAxis stroke='#fff' />
+              <XAxis dataKey='name' stroke='#888' />
+              <YAxis stroke='#888' />
               <Tooltip />
-              <Legend />
               <Bar dataKey='Turnover' fill='#82ca9d' />
             </BarChart>
           </ResponsiveContainer>
+          <p className='mt-4 text-xs text-muted-foreground'>
+            Inventory turnover rate per month
+          </p>
         </CardContent>
       </Card>
-
       {/* Supplier Performance */}
-      <Card className='bg-gradient-to-r from-purple-800 via-purple-700 to-purple-600'>
-        <CardHeader>
-          <CardTitle className='text-gray-100'>Supplier Performance</CardTitle>
+      <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900'>
+        <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardTitle className='text-base font-semibold tracking-tight'>
+            Supplier Performance
+          </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className='mb-2 text-sm text-gray-200'>
-            The pie chart below shows the percentage of on-time versus delayed
-            deliveries from suppliers, which is crucial for assessing supplier
-            reliability.
-          </p>
-          <ResponsiveContainer width='100%' height={300}>
+          <ResponsiveContainer width='100%' height={360}>
             <PieChart>
               <Pie
                 data={supplierPerformanceData}
                 cx='50%'
                 cy='50%'
-                outerRadius={80}
+                outerRadius={90}
                 fill='#8884d8'
                 dataKey='value'
               >
@@ -126,32 +118,28 @@ export function AnalyticsTab() {
                 ))}
               </Pie>
               <Tooltip />
-              <Legend />
             </PieChart>
           </ResponsiveContainer>
+          <p className='mt-4 text-xs text-muted-foreground'>
+            On-time vs Delayed deliveries
+          </p>
         </CardContent>
       </Card>
-
-      {/* Order Fulfillment Status */}
-      <Card className='bg-gradient-to-r from-teal-800 via-teal-700 to-teal-600'>
-        <CardHeader>
-          <CardTitle className='text-gray-100'>
-            Order Fulfillment Status
+      {/* Order Fulfillment */}
+      <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900'>
+        <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+          <CardTitle className='text-base font-semibold tracking-tight'>
+            Order Fulfillment
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className='mb-2 text-sm text-gray-200'>
-            This chart breaks down the current status of orders into three
-            categories: In Progress, Completed, and Cancelled. It helps in
-            understanding the order processing efficiency.
-          </p>
-          <ResponsiveContainer width='100%' height={300}>
+          <ResponsiveContainer width='100%' height={360}>
             <PieChart>
               <Pie
                 data={orderFulfillmentData}
                 cx='50%'
                 cy='50%'
-                outerRadius={80}
+                outerRadius={90}
                 fill='#82ca9d'
                 dataKey='value'
               >
@@ -163,9 +151,11 @@ export function AnalyticsTab() {
                 ))}
               </Pie>
               <Tooltip />
-              <Legend />
             </PieChart>
           </ResponsiveContainer>
+          <p className='mt-4 text-xs text-muted-foreground'>
+            Order status breakdown
+          </p>
         </CardContent>
       </Card>
     </div>

@@ -44,7 +44,7 @@ export default function Sidebar({
         {/* Header */}
         <Layout.Header
           sticky
-          className='z-50 flex justify-between px-4 py-3 shadow-sm md:px-4'
+          className='z-50 flex justify-between px-4 py-3 border-b border-border/50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-4'
         >
           <div className={`flex items-center ${!isCollapsed ? 'gap-2' : ''}`}>
             <svg

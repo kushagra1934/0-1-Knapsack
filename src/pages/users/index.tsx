@@ -88,8 +88,8 @@ const UsersPage: React.FC = () => {
       <Layout.Body>
         <div className='flex flex-col p-6 md:flex-row'>
           {/* Sidebar for Categories */}
-          <aside className='mb-6 rounded-lg p-4 md:mb-0 md:w-1/4'>
-            <Card>
+          <aside className='mb-6 rounded-xl p-4 md:mb-0 md:w-1/4'>
+            <Card className='rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
               <CardHeader>
                 <CardTitle className='text-xl font-semibold'>
                   Categories
@@ -100,7 +100,7 @@ const UsersPage: React.FC = () => {
                   {UserCategories.map((category) => (
                     <li
                       key={category}
-                      className={`cursor-pointer rounded-lg p-2 transition duration-300 hover:bg-gray-100 ${selectedCategory === category ? 'bg-gray-200 font-semibold' : ''}`}
+                      className={`cursor-pointer rounded-lg px-3 py-2 transition duration-200 ${selectedCategory === category ? 'bg-zinc-200 font-semibold text-zinc-900 dark:bg-zinc-800 dark:text-white' : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800'}`}
                       onClick={() => setSelectedCategory(category)}
                     >
                       {category}
@@ -125,7 +125,7 @@ const UsersPage: React.FC = () => {
 
             {/* Add User Form */}
             {showAddUserForm && (
-              <Card className='mb-6 rounded-lg border border-gray-300 shadow-sm'>
+              <Card className='mb-6 rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
                 <CardHeader>
                   <CardTitle className='text-lg font-semibold'>
                     Add New User
@@ -134,25 +134,29 @@ const UsersPage: React.FC = () => {
                 <CardContent>
                   <div className='space-y-4'>
                     <div>
-                      <label className='mb-1 block font-semibold'>Name</label>
+                      <label className='mb-1 block font-semibold text-zinc-800 dark:text-zinc-200'>
+                        Name
+                      </label>
                       <input
                         type='text'
                         value={newUser.name}
                         onChange={(e) =>
                           setNewUser({ ...newUser, name: e.target.value })
                         }
-                        className='w-full rounded-lg border border-gray-300 p-3'
+                        className='w-full rounded-xl border border-zinc-300 bg-white p-3 text-zinc-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
                         placeholder='User Name'
                       />
                     </div>
                     <div>
-                      <label className='mb-1 block font-semibold'>Role</label>
+                      <label className='mb-1 block font-semibold text-zinc-800 dark:text-zinc-200'>
+                        Role
+                      </label>
                       <select
                         value={newUser.role}
                         onChange={(e) =>
                           setNewUser({ ...newUser, role: e.target.value })
                         }
-                        className='w-full rounded-lg border border-gray-300 p-3'
+                        className='w-full rounded-xl border border-zinc-300 bg-white p-3 text-zinc-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
                       >
                         <option value='' disabled>
                           Select Role
@@ -163,32 +167,36 @@ const UsersPage: React.FC = () => {
                       </select>
                     </div>
                     <div>
-                      <label className='mb-1 block font-semibold'>Email</label>
+                      <label className='mb-1 block font-semibold text-zinc-800 dark:text-zinc-200'>
+                        Email
+                      </label>
                       <input
                         type='email'
                         value={newUser.email}
                         onChange={(e) =>
                           setNewUser({ ...newUser, email: e.target.value })
                         }
-                        className='w-full rounded-lg border border-gray-300 p-3'
+                        className='w-full rounded-xl border border-zinc-300 bg-white p-3 text-zinc-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
                         placeholder='User Email'
                       />
                     </div>
                     <div>
-                      <label className='mb-1 block font-semibold'>Phone</label>
+                      <label className='mb-1 block font-semibold text-zinc-800 dark:text-zinc-200'>
+                        Phone
+                      </label>
                       <input
                         type='text'
                         value={newUser.phone}
                         onChange={(e) =>
                           setNewUser({ ...newUser, phone: e.target.value })
                         }
-                        className='w-full rounded-lg border border-gray-300 p-3'
+                        className='w-full rounded-xl border border-zinc-300 bg-white p-3 text-zinc-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white'
                         placeholder='User Phone'
                       />
                     </div>
                     <button
                       onClick={handleAddUser}
-                      className='rounded-lg border border-blue-700 bg-blue-600 px-4 py-2 text-white transition duration-300 hover:bg-blue-700'
+                      className='rounded-xl border border-blue-700 bg-blue-600 px-4 py-2 font-semibold text-white shadow-sm transition duration-200 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500'
                     >
                       Add User
                     </button>
@@ -201,7 +209,7 @@ const UsersPage: React.FC = () => {
             {selectedCategory === 'All' ? (
               UserCategories.slice(1).map((category) => (
                 <section key={category} className='mb-8'>
-                  <Card className='rounded-lg border border-gray-300 shadow-sm'>
+                  <Card className='mb-8 rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
                     <CardHeader>
                       <CardTitle className='text-lg font-semibold'>
                         {category} Users
@@ -213,24 +221,28 @@ const UsersPage: React.FC = () => {
                           usersByRole[category].map((user) => (
                             <li
                               key={user.id}
-                              className='rounded-lg border border-gray-300 bg-white p-4 shadow-sm'
+                              className='flex flex-col items-start gap-2 rounded-xl border border-zinc-300 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 md:flex-row md:items-center md:justify-between'
                             >
-                              <div className='flex flex-col md:flex-row md:justify-between'>
-                                <div>
-                                  <h2 className='text-xl font-semibold'>
-                                    {user.name}
-                                  </h2>
-                                  <p className='text-gray-600'>{user.role}</p>
-                                </div>
-                                <div className='mt-2 md:mt-0'>
-                                  <p className='text-gray-500'>{user.email}</p>
-                                  <p className='text-gray-500'>{user.phone}</p>
-                                </div>
+                              <div>
+                                <h2 className='text-xl font-semibold text-zinc-900 dark:text-white'>
+                                  {user.name}
+                                </h2>
+                                <p className='text-sm text-muted-foreground'>
+                                  {user.role}
+                                </p>
+                              </div>
+                              <div className='mt-2 md:mt-0'>
+                                <p className='text-sm text-muted-foreground'>
+                                  {user.email}
+                                </p>
+                                <p className='text-sm text-muted-foreground'>
+                                  {user.phone}
+                                </p>
                               </div>
                             </li>
                           ))
                         ) : (
-                          <p className='text-center text-gray-500'>
+                          <p className='text-center text-muted-foreground'>
                             No users found
                           </p>
                         )}
@@ -241,7 +253,7 @@ const UsersPage: React.FC = () => {
               ))
             ) : (
               <section className='mb-8'>
-                <Card className='rounded-lg border border-gray-300 shadow-sm'>
+                <Card className='mb-8 rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
                   <CardHeader>
                     <CardTitle className='text-lg font-semibold'>
                       {selectedCategory} Users
@@ -253,24 +265,28 @@ const UsersPage: React.FC = () => {
                         usersByRole[selectedCategory].map((user) => (
                           <li
                             key={user.id}
-                            className='rounded-lg border border-gray-300 bg-white p-4 shadow-sm'
+                            className='flex flex-col items-start gap-2 rounded-xl border border-zinc-300 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900 md:flex-row md:items-center md:justify-between'
                           >
-                            <div className='flex flex-col md:flex-row md:justify-between'>
-                              <div>
-                                <h2 className='text-xl font-semibold'>
-                                  {user.name}
-                                </h2>
-                                <p className='text-gray-600'>{user.role}</p>
-                              </div>
-                              <div className='mt-2 md:mt-0'>
-                                <p className='text-gray-500'>{user.email}</p>
-                                <p className='text-gray-500'>{user.phone}</p>
-                              </div>
+                            <div>
+                              <h2 className='text-xl font-semibold text-zinc-900 dark:text-white'>
+                                {user.name}
+                              </h2>
+                              <p className='text-sm text-muted-foreground'>
+                                {user.role}
+                              </p>
+                            </div>
+                            <div className='mt-2 md:mt-0'>
+                              <p className='text-sm text-muted-foreground'>
+                                {user.email}
+                              </p>
+                              <p className='text-sm text-muted-foreground'>
+                                {user.phone}
+                              </p>
                             </div>
                           </li>
                         ))
                       ) : (
-                        <p className='text-center text-gray-500'>
+                        <p className='text-center text-muted-foreground'>
                           No users found
                         </p>
                       )}

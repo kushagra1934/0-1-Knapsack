@@ -76,9 +76,11 @@ const WarehousePage: React.FC = () => {
           {/* Warehouse Statistics Cards */}
           <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
             {/* Total Shipments Card */}
-            <Card className='bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-white'>
+            <Card className='rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
               <CardHeader>
-                <CardTitle>Total Shipments</CardTitle>
+                <CardTitle className='text-base font-semibold tracking-tight'>
+                  Total Shipments
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-3xl font-bold'>
                 {warehouseData.reduce(
@@ -87,11 +89,12 @@ const WarehousePage: React.FC = () => {
                 )}
               </CardContent>
             </Card>
-
             {/* Total Workers Card */}
-            <Card className='bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white'>
+            <Card className='rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
               <CardHeader>
-                <CardTitle>Total Workers</CardTitle>
+                <CardTitle className='text-base font-semibold tracking-tight'>
+                  Total Workers
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-3xl font-bold'>
                 {warehouseData.reduce(
@@ -100,11 +103,12 @@ const WarehousePage: React.FC = () => {
                 )}
               </CardContent>
             </Card>
-
             {/* Active Shipments Card */}
-            <Card className='bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 text-white'>
+            <Card className='rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
               <CardHeader>
-                <CardTitle>Active Shipments</CardTitle>
+                <CardTitle className='text-base font-semibold tracking-tight'>
+                  Active Shipments
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-3xl font-bold'>
                 {warehouseData.reduce(
@@ -113,11 +117,12 @@ const WarehousePage: React.FC = () => {
                 )}
               </CardContent>
             </Card>
-
             {/* Completed Shipments Card */}
-            <Card className='bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 text-white'>
+            <Card className='rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
               <CardHeader>
-                <CardTitle>Completed Shipments</CardTitle>
+                <CardTitle className='text-base font-semibold tracking-tight'>
+                  Completed Shipments
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-3xl font-bold'>
                 {warehouseData.reduce(
@@ -126,11 +131,12 @@ const WarehousePage: React.FC = () => {
                 )}
               </CardContent>
             </Card>
-
             {/* Pending Shipments Card */}
-            <Card className='bg-gradient-to-r from-red-400 via-red-500 to-red-600 text-white'>
+            <Card className='rounded-xl border border-zinc-300 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
               <CardHeader>
-                <CardTitle>Pending Shipments</CardTitle>
+                <CardTitle className='text-base font-semibold tracking-tight'>
+                  Pending Shipments
+                </CardTitle>
               </CardHeader>
               <CardContent className='text-3xl font-bold'>
                 {warehouseData.reduce(
@@ -140,11 +146,12 @@ const WarehousePage: React.FC = () => {
               </CardContent>
             </Card>
           </div>
-
           {/* Shipment Status Chart */}
-          <Card>
+          <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
             <CardHeader>
-              <CardTitle>Shipment Status</CardTitle>
+              <CardTitle className='text-base font-semibold tracking-tight'>
+                Shipment Status
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width='100%' height={300}>
@@ -170,11 +177,12 @@ const WarehousePage: React.FC = () => {
               </ResponsiveContainer>
             </CardContent>
           </Card>
-
           {/* Warehouse Stats Chart */}
-          <Card>
+          <Card className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
             <CardHeader>
-              <CardTitle>Warehouse Statistics</CardTitle>
+              <CardTitle className='text-base font-semibold tracking-tight'>
+                Warehouse Statistics
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width='100%' height={400}>

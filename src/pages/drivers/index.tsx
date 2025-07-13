@@ -84,8 +84,8 @@ const DriverPage: React.FC = () => {
           <h1 className='mb-6 text-3xl font-bold text-gray-800'>
             Driver Information
           </h1>
-          <div className='mb-8'>
-            <h2 className='mb-4 text-xl font-semibold text-gray-700'>
+          <div className='mb-8 rounded-xl border border-zinc-300 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
+            <h2 className='mb-4 text-base font-semibold tracking-tight'>
               Driver Status Distribution
             </h2>
             <ResponsiveContainer width='100%' height={300}>
@@ -94,7 +94,7 @@ const DriverPage: React.FC = () => {
                   data={statusChartData}
                   dataKey='value'
                   nameKey='name'
-                  outerRadius={80}
+                  outerRadius={100}
                   fill='#8884d8'
                   label
                 >
@@ -112,8 +112,8 @@ const DriverPage: React.FC = () => {
               </PieChart>
             </ResponsiveContainer>
           </div>
-          <div className='rounded-lg bg-white p-4 shadow-lg'>
-            <h2 className='mb-4 text-xl font-semibold text-gray-800'>
+          <div className='rounded-xl border border-zinc-300 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900'>
+            <h2 className='mb-4 text-base font-semibold tracking-tight'>
               Driver Details
             </h2>
             <Table data={driverData} columns={columns} />
