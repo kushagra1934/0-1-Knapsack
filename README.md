@@ -63,7 +63,9 @@ Team 01 Knapsack presents a comprehensive platform to **optimize supply chain an
 ---
 
 ## 👨‍👩‍👧‍👦 Team
-- Kushagra Saxena + Team 01 Knapsack
+- Kushagra Saxena
+- Krish Srivastava
+- Utkarsh
 
 ---
 
