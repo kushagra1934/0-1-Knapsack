@@ -9,6 +9,7 @@ import { OverviewTab } from './components/tabs/overview'
 import { AnalyticsTab } from './components/tabs/analytics'
 import { ReportsTab } from './components/tabs/reports'
 import { NotificationsTab } from './components/tabs/notifications'
+import Agent from './components/agent'
 // import { OverviewTab, AnalyticsTab, ReportsTab, NotificationsTab } from './components/tabs/tabs'
 
 export default function Dashboard() {
@@ -44,6 +45,7 @@ export default function Dashboard() {
               <TabsTrigger value='analytics'>Analytics</TabsTrigger>
               <TabsTrigger value='reports'>Reports</TabsTrigger>
               <TabsTrigger value='notifications'>Notifications</TabsTrigger>
+              <TabsTrigger value='agent'>AI Assistant</TabsTrigger>
             </TabsList>
           </div>
 
@@ -58,6 +60,9 @@ export default function Dashboard() {
           </TabsContent>
           <TabsContent value='notifications'>
             <NotificationsTab />
+          </TabsContent>
+          <TabsContent value='agent' className='h-[calc(100vh-12rem)]'>
+            <Agent />
           </TabsContent>
         </Tabs>
       </Layout.Body>
